@@ -61,3 +61,8 @@ rails generate devise:install
 rails g devise:views
 rails generate devise User
 ```
+**Insert to table User with isadmin:boolean, first_name:text, last_name:text**
+```bash
+bin/rails generate migration AddIsAdminToUsers isadmin:boolean first_name:text last_name:text
+```
+
