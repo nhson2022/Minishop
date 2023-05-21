@@ -54,4 +54,10 @@ bin/rails action_text:install
 bin/rails db:migrate
 ```
 
-
+## Setup Devise
+```bash
+bundle add devise
+rails generate devise:install
+rails g devise:views
+rails generate devise User
+```
