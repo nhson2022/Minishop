@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  resources :categories
   root "pages#home"
   devise_for :users
+  resources :products
+  resources :categories
 end

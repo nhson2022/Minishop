@@ -93,5 +93,8 @@ rails g controller pages home
 ```bash
 rails g scaffold Category name
 ```
-
+## Create scaffold Product
+```bash
+rails g scaffold Product name:string price:integer image description category:references
+```
 
