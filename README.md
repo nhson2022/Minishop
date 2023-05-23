@@ -91,10 +91,14 @@ rails g controller pages home
 
 ## Create scaffold Category
 ```bash
-rails g scaffold Category name
+rails g scaffold Category name:rich_text
 ```
 ## Create scaffold Product
 ```bash
-rails g scaffold Product name:string price:integer image description category:references
+rails g scaffold Product name:string price:integer image description:rich_text category:references
+```
+## Create scaffold Order
+```bash
+rails g scaffold Order total:integer status:string payment_method:string note:rich_text user:references
 ```
 
