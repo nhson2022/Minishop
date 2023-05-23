@@ -64,5 +64,34 @@ rails generate devise User
 **Insert to table User with isadmin:boolean, first_name:text, last_name:text**
 ```bash
 bin/rails generate migration AddIsAdminToUsers isadmin:boolean first_name:text last_name:text
+rails db:migrate
 ```
+**Update app/views/layouts/application.html.erb**
+```html
+<div class="container">
+  <% if notice.present? %>
+    <div class="alert alert-primary mt-4" role="alert">
+      <%= notice %>
+    </div>
+  <% end %>
+
+  <% if alert.present? %>
+    <div class="alert alert-danger mt-4" role="alert">
+      <%= alert %>
+    </div>
+  <% end %>
+
+  <%= yield %>
+</div>
+```
+## Create pages home
+```bash
+rails g controller pages home
+```
+
+## Create scaffold Category
+```bash
+rails g scaffold Category name
+```
+
 
