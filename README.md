@@ -102,3 +102,7 @@ rails g scaffold Product name:string price:integer image description:rich_text c
 rails g scaffold Order total:integer status:string payment_method:string note:rich_text user:references
 ```
 
+## Create scaffold OrderProduct
+```bash
+rails g scaffold OrderProduct price:integer amount:integer order:references product:references
+```
