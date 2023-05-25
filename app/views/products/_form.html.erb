@@ -1,42 +1,37 @@
 <%= form_with(model: product) do |form| %>
-  <% if product.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h2>
-
-      <ul>
-        <% product.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
-  </div>
-
-  <div>
-    <%= form.label :price, style: "display: block" %>
-    <%= form.number_field :price %>
-  </div>
-
-  <div>
-    <%= form.label :image, style: "display: block" %>
-    <%= form.text_field :image %>
-  </div>
-
-  <div>
-    <%= form.label :description, style: "display: block" %>
-    <%= form.text_field :description %>
-  </div>
-
-  <div>
-    <%= form.label :category_id, style: "display: block" %>
-    <%= form.text_field :category_id %>
-  </div>
-
-  <div>
-    <%= form.submit %>
-  </div>
+	<% if product.errors.any? %>
+		<div style="color: red">
+			<h2><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h2>
+			<ul>
+				<% product.errors.each do |error| %>
+					<li><%= error.full_message %></li>
+				<% end %>
+			</ul>
+		</div>
+	<% end %>
+	<div class="container">
+		<div>
+			<%= form.label :name, class: 'form-label' %>
+			<%= form.text_field :name, class: 'form-control', style: "width: 30rem;"%>
+		</div>
+		<div>
+			<p><%= form.label :price, class: 'form-label' %></p>
+			<%= form.number_field :price, style: "width: 18rem;" %>
+		</div>
+		<div class="field">
+			<%= form.label :description, class: 'form-label' %>
+			<%= form.rich_text_area :content %>
+		</div>
+		<div class="mt-3">
+			<%= form.label :image, class: "form-label" %>
+			<%= form.file_field :image %>
+		</div>
+		<div class="mt-3" style="width: 18rem;">
+			<%= form.label :category_id, class: "form-label" %>
+			<%= form.collection_select :category_id, Category.order(:name), :id, :name, {prompt: true}, {class: "form-control"} %>
+		</div>
+	</div>
+	<div>
+		<%= form.submit class: 'btn btn-primary mt-4'%>
+	</div>
 <% end %>
