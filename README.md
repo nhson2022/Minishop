@@ -106,3 +106,19 @@ rails g scaffold Order total:integer status:string payment_method:string note:ri
 ```bash
 rails g scaffold OrderProduct price:integer amount:integer order:references product:references
 ```
+
+## Setup gem will_paginate
+```bash
+bundle add will_paginate
+bundle add will_paginate-bootstrap-style
+```
+
+## Create seeds
+```rb
+admin = User.create(first_name: 'Nguyen', last_name: 'Son', email: 'son@example.com', password: 'Son@2023', password_confirmation: 'Son@2023', isadmin: true)
+```
+**Run seed**
+```bash
+rails db:seed
+```
+
