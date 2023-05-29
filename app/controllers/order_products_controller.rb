@@ -1,6 +1,6 @@
 class OrderProductsController < ApplicationController
   before_action :set_order_product, only: %i[ show edit update destroy ]
-
+  before_action :authenticate_user!
   # GET /order_products or /order_products.json
   def index
     @order_products = OrderProduct.all

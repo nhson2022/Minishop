@@ -1,3 +1,3 @@
 class Category < ApplicationRecord
-    has_rich_text :name
+  has_many :products, dependent: :destroy
 end

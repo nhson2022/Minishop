@@ -7,13 +7,14 @@ class Product < ApplicationRecord
 
   def self.search(params)
     if params[:q].present?
-      return includes(params)
+      # chi duoc includes moi quan he
+      return includes(:category) 
                .where("LOWER(title) LIKE LOWER(?)", "%#{params[:q].to_s.squish}%")
                .order(id: :desc)
                .paginate(page: params[:page] || 1, per_page: 10)
     end
 
-    includes(params)
+    includes(:category)
       .order(id: :desc)
       .paginate(page: params[:page] || 1, per_page: 10)
   end
